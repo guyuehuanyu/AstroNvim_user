@@ -11,6 +11,11 @@ vim.api.nvim_create_autocmd("BufRead", {
       desc = "test",
       once = true,
     })
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      once = true,
+      command = 'normal! zx'
+    })
+
   end,
   desc = "test",
 })
