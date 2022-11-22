@@ -1,6 +1,9 @@
 
 local mappings = {
   n = {
+    ["<S-l>"] = false,
+    ["<S-h>"] = false,
+    ["<S-m>"] = false,
     ["<leader>e"] = false,
     ["<leader>o"] = false,
     ["<leader>sk"] = false, -- { function() require("telescope.builtin").keymaps() end, desc = "Search keymaps" }
