@@ -17,9 +17,9 @@ local options = {
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
     tabstop = 2, -- tab显示的num数
     conceallevel = 2, -- enable conceal 隐藏字符的控制相关
-    shortmess = vim.opt.shortmess + { I = true }, -- don't give the intro message when starting Vim |:intro|.
     linebreak = true, -- 当开启换行功能是，是否要显示断点
     showbreak = "↪ ",
+    -- FIXED 会报错 shortmess = vim.opt.shortmess + { I = true },
   },
 }
 
