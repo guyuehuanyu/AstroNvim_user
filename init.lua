@@ -7,5 +7,13 @@ local config = {
       },
     },
   },
+
+  cmp = {
+    tags = 1000,
+    nvim_lsp = 900,
+    luasnip = 750,
+    path = 500,
+    buffer = 250,
+  }
 }
 return config
