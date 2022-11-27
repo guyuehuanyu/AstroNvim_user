@@ -24,5 +24,11 @@ return {
 
     end
   },
-  -- ['nvim-lua/completion-nvim'] = { },
+  ["guyuehuanyu/block"] = {},
+  ['LukasPietzschmann/telescope-tabs'] = {
+    config = function()
+      require'telescope-tabs'.setup{
+      }
+    end
+  },
 }
