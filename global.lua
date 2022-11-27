@@ -1,4 +1,5 @@
 _G.usernvim = {}
+_G.userbufferline = {}
 usernvim.user_terminals = {}
 local lazy = require("toggleterm.lazy")
 local ui = lazy.require("toggleterm.ui")
