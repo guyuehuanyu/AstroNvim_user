@@ -92,7 +92,7 @@ local mappings = {
     ["<Bslash>8"] = { "<cmd> 8tabnext <CR>", desc = "Pick tabs 8" },
     ["<Bslash>9"] = { "<cmd> 9tabnext <CR>", desc = "Pick tabs 9" },
     ["<Bslash>x"] = { "<cmd> tabclose <CR>", desc = "close table" },
-    ["<Bslash><Bslash>"] = { "<cmd> tab vsp <CR> | <cmd> Neotree <CR>", desc = "tab vsp page" },
+    ["<Bslash><Bslash>"] = { "<cmd> tab vsp <CR>", desc = "tab vsp page" },
     --["<lt>t"] = { "<cmd> tabprev <CR>", desc = "prev tab" },
     --[">t"] = { "<cmd> tabnext <CR>", desc = "next tab" },
     ["<Tab>"] = { "<cmd> tabnext <CR>", desc = "prev tab" },
