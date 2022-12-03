@@ -40,6 +40,7 @@ local mappings = {
       end,
       desc = "Search symbols",
     },
+    ["<leader>lc"] = { "<cmd> Telescope jumps changes<CR>", desc = "List change jumps" },
     -- NeoTree
     ["<C-n>"] = { "<cmd>Neotree toggle<cr>", desc = "Neotree Toggle Explorer" },
     ["<Bslash>h"] = { "<cmd>Neotree focus<cr>", desc = "Neotree Focus Explorer" },
@@ -56,12 +57,14 @@ local mappings = {
     --["<A-h>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal split" },
     --["<A-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical split" },
     -- GitSigns
-    ["<leader>gs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage git hunk" },
+    ["<leader>ga"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage git hunk" },
     ["<leader>gu"] = { function() require("gitsigns").undo_stage_hunk() end, desc = "Unstage git hunk" },
 
-    ["<leader>ga"] = { function() require("gitsigns").stage_buffer() end, desc = "Stage buffer git hunk" },
+    ["<leader>gA"] = { function() require("gitsigns").stage_buffer() end, desc = "Stage buffer git hunk" },
     ["<leader>gU"] = { function() require("gitsigns").undo_stage_buffer() end, desc = "Stage buffer git hunk" },
 
+    ["<leader>gr"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset git hunk" },
+    ["<leader>gR"] = { function() require("gitsigns").reset_buffer() end, desc = "Reset git buffer" },
     ["<leader>gd"] = { function() require("gitsigns").diffthis() end, desc = "View git diff" },
     ["[c"] = { function()
       if vim.wo.diff then
@@ -82,15 +85,15 @@ local mappings = {
       return "<Ignore>"
     end, desc = "Next git hunk" },
     -- Tabs
-    ["<Bslash>1"] = { "<cmd> 1tabnext <CR>", desc = "Pick tabs 1" },
-    ["<Bslash>2"] = { "<cmd> 2tabnext <CR>", desc = "Pick tabs 2" },
-    ["<Bslash>3"] = { "<cmd> 3tabnext <CR>", desc = "Pick tabs 3" },
-    ["<Bslash>4"] = { "<cmd> 4tabnext <CR>", desc = "Pick tabs 4" },
-    ["<Bslash>5"] = { "<cmd> 5tabnext <CR>", desc = "Pick tabs 5" },
-    ["<Bslash>6"] = { "<cmd> 6tabnext <CR>", desc = "Pick tabs 6" },
-    ["<Bslash>7"] = { "<cmd> 7tabnext <CR>", desc = "Pick tabs 7" },
-    ["<Bslash>8"] = { "<cmd> 8tabnext <CR>", desc = "Pick tabs 8" },
-    ["<Bslash>9"] = { "<cmd> 9tabnext <CR>", desc = "Pick tabs 9" },
+    ["<A-q>"] = { "<cmd> 1tabnext <CR>", desc = "Pick tabs 1" },
+    ["<A-w>"] = { "<cmd> 2tabnext <CR>", desc = "Pick tabs 2" },
+    ["<A-e>"] = { "<cmd> 3tabnext <CR>", desc = "Pick tabs 3" },
+    ["<A-r>"] = { "<cmd> 4tabnext <CR>", desc = "Pick tabs 4" },
+    ["<A-t>"] = { "<cmd> 5tabnext <CR>", desc = "Pick tabs 5" },
+    ["<A-y>"] = { "<cmd> 6tabnext <CR>", desc = "Pick tabs 6" },
+    ["<A-u>"] = { "<cmd> 7tabnext <CR>", desc = "Pick tabs 7" },
+    ["<A-o>"] = { "<cmd> 8tabnext <CR>", desc = "Pick tabs 8" },
+    ["<A-p>"] = { "<cmd> 9tabnext <CR>", desc = "Pick tabs 9" },
     ["<Bslash>x"] = { "<cmd> tabclose <CR>", desc = "close table" },
     ["<Bslash><Bslash>"] = { "<cmd> tab vsp <CR>", desc = "tab vsp page" },
     --["<lt>t"] = { "<cmd> tabprev <CR>", desc = "prev tab" },
@@ -140,6 +143,21 @@ local mappings = {
     ["<A-j>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" },
     ["<A-k>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" },
     ["<A-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" },
+
+    ["<A-q>"] = { "<cmd> 1tabnext <CR>", desc = "Pick tabs 1" },
+    ["<A-w>"] = { "<cmd> 2tabnext <CR>", desc = "Pick tabs 2" },
+    ["<A-e>"] = { "<cmd> 3tabnext <CR>", desc = "Pick tabs 3" },
+    ["<A-r>"] = { "<cmd> 4tabnext <CR>", desc = "Pick tabs 4" },
+    ["<A-t>"] = { "<cmd> 5tabnext <CR>", desc = "Pick tabs 5" },
+    ["<A-y>"] = { "<cmd> 6tabnext <CR>", desc = "Pick tabs 6" },
+    ["<A-u>"] = { "<cmd> 7tabnext <CR>", desc = "Pick tabs 7" },
+    ["<A-o>"] = { "<cmd> 8tabnext <CR>", desc = "Pick tabs 8" },
+    ["<A-p>"] = { "<cmd> 9tabnext <CR>", desc = "Pick tabs 9" },
+    ["<Bslash><Bslash>"] = { "<cmd> tab vsp <CR>", desc = "tab vsp page" },
+    ["<A-I>"] = { function() usernvim.toggle_term_float() end, desc = "ToggleTerm float global" },
+    ["<A-i>"] = { function() usernvim.toggle_term_tab({direction = "float"}) end, desc = "ToggleTerm float tabpage" },
+    ["<A-n>"] = { function() usernvim.toggle_term_tab({direction = "horizontal"}) end, desc = "ToggleTerm horizontal tabpage" },
+    ["<A-N>"] = { function() usernvim.toggle_term_horizontal() end, desc = "ToggleTerm horizontal globa" },
   },
   v = {
     ["<"] = false,
@@ -152,7 +170,22 @@ local mappings = {
     ["<A-j>"] = { function() require("smart-splits").move_cursor_down() end, desc = "Move to below split" },
     ["<A-k>"] = { function() require("smart-splits").move_cursor_up() end, desc = "Move to above split" },
     ["<A-l>"] = { function() require("smart-splits").move_cursor_right() end, desc = "Move to right split" },
-  }
+
+    ["<A-q>"] = { "<cmd> 1tabnext <CR>", desc = "Pick tabs 1" },
+    ["<A-w>"] = { "<cmd> 2tabnext <CR>", desc = "Pick tabs 2" },
+    ["<A-e>"] = { "<cmd> 3tabnext <CR>", desc = "Pick tabs 3" },
+    ["<A-r>"] = { "<cmd> 4tabnext <CR>", desc = "Pick tabs 4" },
+    ["<A-t>"] = { "<cmd> 5tabnext <CR>", desc = "Pick tabs 5" },
+    ["<A-y>"] = { "<cmd> 6tabnext <CR>", desc = "Pick tabs 6" },
+    ["<A-u>"] = { "<cmd> 7tabnext <CR>", desc = "Pick tabs 7" },
+    ["<A-o>"] = { "<cmd> 8tabnext <CR>", desc = "Pick tabs 8" },
+    ["<A-p>"] = { "<cmd> 9tabnext <CR>", desc = "Pick tabs 9" },
+    ["<Bslash><Bslash>"] = { "<cmd> tab vsp <CR>", desc = "tab vsp page" },
+    ["<A-I>"] = { function() usernvim.toggle_term_float() end, desc = "ToggleTerm float global" },
+    ["<A-i>"] = { function() usernvim.toggle_term_tab({direction = "float"}) end, desc = "ToggleTerm float tabpage" },
+    ["<A-n>"] = { function() usernvim.toggle_term_tab({direction = "horizontal"}) end, desc = "ToggleTerm horizontal tabpage" },
+    ["<A-N>"] = { function() usernvim.toggle_term_horizontal() end, desc = "ToggleTerm horizontal globa" },
+  },
 }
 
 
