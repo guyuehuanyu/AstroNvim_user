@@ -15,10 +15,14 @@ local options = {
     foldmethod = "expr",
     list = true, -- 显示空白字符，tab、换行、制表
     listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
-    tabstop = 2, -- tab显示的num数
+    tabstop = 4, -- tab显示的num数
     conceallevel = 2, -- enable conceal 隐藏字符的控制相关
     linebreak = true, -- 当开启换行功能是，是否要显示断点
     showbreak = "↪ ",
+    shiftwidth = 4, -- Number of space inserted for indentation
+    showtabline = 4, -- always display tabline
+    -- 支持windows下得文件格式
+    fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1",
     -- FIXED 会报错 shortmess = vim.opt.shortmess + { I = true },
   },
 }
